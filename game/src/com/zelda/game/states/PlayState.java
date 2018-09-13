@@ -2,6 +2,7 @@ package com.zelda.game.states;
 
 import com.zelda.game.GamePanel;
 import com.zelda.game.entity.Enemy;
+import com.zelda.game.entity.EnemyOnline;
 import com.zelda.game.entity.Player;
 import com.zelda.game.graphics.Font;
 import com.zelda.game.graphics.Sprite;
@@ -16,7 +17,8 @@ public class PlayState extends GameState {
 
 	private Font font;
 	private Player player;
-	private Enemy enemy, enemy2;
+	private Enemy enemy;
+	private EnemyOnline enemy2;
 	private TileManager tm;
 
 	public static Vector2f map;
@@ -30,16 +32,16 @@ public class PlayState extends GameState {
 		font = new Font("font/font.png", 10, 10);
 
 		enemy = new Enemy(new Sprite("entity/littlegirl.png", 48, 48), new Vector2f(0 + (GamePanel.width / 2) - 32 + 150, 0 + (GamePanel.height / 2) - 32 + 150), 64);
-		enemy2 = new Enemy(new Sprite("entity/littlegirl.png"), new Vector2f(0 + (GamePanel.width / 2) - 32, 0 + (GamePanel.height / 2) - 32), 64);
+		enemy2 = new EnemyOnline(new Sprite("entity/linkFormatted.png"), new Vector2f(0 + (GamePanel.width / 2) - 32 + 40, 0 + (GamePanel.height / 2) - 32 + 150), 64);
 		player = new Player(new Sprite("entity/linkFormatted.png"), new Vector2f(0 + (GamePanel.width / 2) - 32, 0 + (GamePanel.height / 2) - 32), 64);
 	}
 
 	public void update() {
 		Vector2f.setWorldVar(map.x, map.y);
 		player.update(enemy);
-		player.update(enemy2);
+//		player.update(enemy2);
 		enemy.update(player);
-		enemy2.update(player);
+//		enemy2.update(player);
 	}
 
 	public void input(MouseHandler mouse, KeyHandler key) {
@@ -51,8 +53,8 @@ public class PlayState extends GameState {
 		String fps = GamePanel.oldFrameCount + " FPS";
 		Sprite.drawArray(g, font, fps, new Vector2f(GamePanel.width - fps.length() * 32, 32), 32, 24);
 
-		String tps = GamePanel.oldTickCount + " TPS";
-		Sprite.drawArray(g, tps, new Vector2f(GamePanel.width - tps.length() * 32, 64), 32, 24);
+//		String tps = GamePanel.oldTickCount + " TPS";
+//		Sprite.drawArray(g, tps, new Vector2f(GamePanel.width - tps.length() * 32, 64), 32, 24);
 		
 		player.render(g);
 		enemy.render(g);

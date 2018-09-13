@@ -3,15 +3,18 @@ package com.zelda.game.entity;
 
 import com.zelda.game.GamePanel;
 import com.zelda.game.graphics.Sprite;
+import com.zelda.game.states.PlayState;
+import com.zelda.game.util.JsonGenerator;
 import com.zelda.game.util.KeyHandler;
 import com.zelda.game.util.MouseHandler;
 import com.zelda.game.util.Vector2f;
-import com.zelda.game.states.PlayState;
+import java.io.FileNotFoundException;
 
 import java.awt.*;
 
 public class Player extends Entity {
 
+    private JsonGenerator generator = new JsonGenerator();
 
     public Player(Sprite sprite, Vector2f orgin, int size) {
         super(sprite, orgin, size);
@@ -95,6 +98,14 @@ public class Player extends Entity {
 
         if(attack && hitBounds.collides(enemy.getBounds())) {
             System.out.println("I've been hit!");
+
+            try {
+                generator.generate();
+                System.out.println("File Found");
+            } catch (FileNotFoundException ex) {
+                System.out.println("File Not Found");
+            }
+
         }
 
         if(!fallen) {

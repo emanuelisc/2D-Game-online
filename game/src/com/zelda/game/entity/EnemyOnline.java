@@ -2,79 +2,78 @@ package com.zelda.game.entity;
 
 
 import com.zelda.game.graphics.Sprite;
-import com.zelda.game.util.AABB;
+import com.zelda.game.util.JsonGenerator;
 import com.zelda.game.util.Vector2f;
 
 import java.awt.*;
 
 public class EnemyOnline extends Entity{
 
-    private AABB sense;
     private int r;
-
+    private JsonGenerator generator;
     public EnemyOnline(Sprite sprite, Vector2f orgin, int size) {
         super(sprite, orgin, size);
-
-        acc = 1f;
-        maxSpeed = 2f;
-        r = 350;
 
         bounds.setWidth(42);
         bounds.setHeight(20);
         bounds.setXOffset(12);
         bounds.setYOffset(40);
 
-        sense = new AABB(new Vector2f(orgin.x + size / 2 - r / 2, orgin.y + size / 2 - r / 2), r);
+
     }
 
-    public void move(Player player) {
-        if(sense.colCircleBox(player.getBounds())) {
-            if (pos.y > player.pos.y + 1) {
-                dy -= acc;
-                up = true;
-                down = false;
-                if (dy < -maxSpeed) {
-                    dy = -maxSpeed;
-                }
-            } else if (pos.y < player.pos.y - 1) {
-                dy += acc;
-                down = true;
-                up = false;
-                if (dy > maxSpeed) {
-                    dy = maxSpeed;
-                }
-            } else {
-                dy = 0;
-                up = false;
-                down = false;
-            }
-
-            if (pos.x > player.pos.x + 1) {
-                dx -= acc;
-                left = true;
-                right = false;
-                if (dx < -maxSpeed) {
-                    dx = -maxSpeed;
-                }
-            } else if (pos.x < player.pos.x - 1) {
-                dx += acc;
-                right = true;
-                left = false;
-                if (dx > maxSpeed) {
-                    dx = maxSpeed;
-                }
-            } else {
-                dx = 0;
-                right = false;
-                left = false;
+    public void move() {
+        if(up) {
+            dy -= acc;
+            if(dy < -maxSpeed) {
+                dy = -maxSpeed;
             }
         } else {
-            up = false;
-            down = false;
-            left = false;
-            right = false;
-            dx = 0;
-            dy = 0;
+            if(dy < 0) {
+                dy += deacc;
+                if(dy > 0) {
+                    dy = 0;
+                }
+            }
+        }
+        if(down) {
+            dy += acc;
+            if(dy > maxSpeed) {
+                dy = maxSpeed;
+            }
+        } else {
+            if(dy > 0) {
+                dy -= deacc;
+                if(dy < 0) {
+                    dy = 0;
+                }
+            }
+        }
+        if(left) {
+            dx -= acc;
+            if(dx < -maxSpeed) {
+                dx = -maxSpeed;
+            }
+        } else {
+            if(dx < 0) {
+                dx += deacc;
+                if(dx > 0) {
+                    dx = 0;
+                }
+            }
+        }
+        if(right) {
+            dx += acc;
+            if(dx > maxSpeed) {
+                dx = maxSpeed;
+            }
+        } else {
+            if(dx > 0) {
+                dx -= deacc;
+                if(dx < 0) {
+                    dx = 0;
+                }
+            }
         }
     }
 
@@ -82,34 +81,29 @@ public class EnemyOnline extends Entity{
 
     }
 
-    public void update(Player player) {
+    public void update() {
         super.update();
-        move(player);
+//            generator.generate();
+//            System.out.println("File Found");
+
+
+        move();
         if(!fallen) {
-            if(!tc.collisionTile(dx, 0)) {
-                sense.getPos().x  += dx;
-                pos.x += dx;
-            }
-            if(!tc.collisionTile(0, dy)) {
-                sense.getPos().y  += dy;
-                pos.y += dy;
-            }
+
         } else {
             destroy();
         }
-
-
     }
-
 
     @Override
     public void render(Graphics2D g) {
         g.setColor(Color.green);
         g.drawRect((int) (pos.getWorldVar().x + bounds.getXOffset()), (int) (pos.getWorldVar().y + bounds.getYOffset()), (int) bounds.getWidth(), (int) bounds.getHeight());
 
-        g.setColor(Color.blue);
-        g.drawOval((int) (sense.getPos().getWorldVar().x), (int) (sense.getPos().getWorldVar().y), r, r);
+//        g.setColor(Color.blue);
+//        g.drawOval((int) (sense.getPos().getWorldVar().x), (int) (sense.getPos().getWorldVar().y), r, r);
 
         g.drawImage(ani.getImage(), (int) (pos.getWorldVar().x), (int) (pos.getWorldVar().y), size, size, null);
+
     }
 }
