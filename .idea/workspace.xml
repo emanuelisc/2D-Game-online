@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="778db864-f539-4fb7-bf44-d07089480e9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/game/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/libraries/json_simple_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/libraries/json_simple_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/JSONExample.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/game/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/SavingPrivateDan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/game/SavingPrivateDan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/GameLauncher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/GamePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/Window.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/entity/Enemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/entity/Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/entity/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/graphics/Animation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/graphics/Font.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/graphics/Sprite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/states/GameOverState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/states/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/states/GameStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/states/MenuState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/states/PauseState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/states/PlayState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/TileManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/TileMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/TileMapNorm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/TileMapObj.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/blocks/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/blocks/HoleBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/blocks/NormBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/tiles/blocks/ObjBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/util/AABB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/util/KeyHandler$Key.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/util/KeyHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/util/MouseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/util/TileCollision.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bin/com/zelda/game/util/Vector2f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/commands/run" beforeDir="false" afterPath="$PROJECT_DIR$/game/commands/run" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/commands/scripts/build.c" beforeDir="false" afterPath="$PROJECT_DIR$/game/commands/scripts/build.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/commands/scripts/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/game/commands/scripts/run.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/GameLauncher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/GamePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/Window.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/entity/Enemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/entity/EnemyOnline.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/entity/Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/entity/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/graphics/Animation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/graphics/Font.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/graphics/Sprite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/states/GameOverState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/states/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/states/GameStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/states/MenuState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/states/PauseState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/states/PlayState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/TileManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/TileMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/TileMapNorm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/TileMapObj.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/blocks/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/blocks/HoleBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/blocks/NormBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/tiles/blocks/ObjBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/AABB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/JsonGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/KeyHandler$Key.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/KeyHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/MouseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/TileCollision.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/Vector2f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/WebHandler$Key.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/com/zelda/game/util/WebHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/json-simple/json-simple-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/tile/tilemap.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/tile/tilemap.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/tile/tilemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/out/production/SavingPrivateDan/tile/tilemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/Server/Server$Handler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/out/production/Server/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/res/json-simple/json-simple-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/res/tile/tilemap.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/game/res/tile/tilemap.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/res/tile/tilemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/res/tile/tilemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/GameLauncher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/GamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/Window.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/entity/Enemy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/entity/EnemyOnline.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/entity/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/entity/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/graphics/Animation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/graphics/Font.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/graphics/Sprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/states/GameOverState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/states/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/states/GameStateManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/states/MenuState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/states/PauseState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/states/PlayState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/TileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/TileMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/TileMapNorm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/TileMapObj.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/blocks/Block.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/blocks/HoleBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/blocks/NormBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/tiles/blocks/ObjBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/AABB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/JsonGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/KeyHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/MouseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/TileCollision.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/Vector2f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/com/zelda/game/util/WebHandler.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-636836473">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="iml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="IDEA_MODULE" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1937" />
+    <option name="height" value="1097" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="zelda" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="zelda" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2D-Game-online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/game" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.GameLauncher">
+    <configuration name="GameLauncher (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zerulus.game.GameLauncher" />
+      <module name="game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zerulus.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zelda.game.GameLauncher" />
+      <module name="game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zelda.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server" />
+      <module name="game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GameLauncher" />
+      <item itemvalue="Application.GameLauncher (1)" />
+      <item itemvalue="Application.Server" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GameLauncher" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.GameLauncher (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="778db864-f539-4fb7-bf44-d07089480e9f" name="Default Changelist" comment="" />
+      <created>1538214012506</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538214012506</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32867134" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/game/game.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,4 +1,2 @@
-
-A simple java 2D game with multiplayer elements.
-
-
+# yt-java-game
+A simple java 2D game
