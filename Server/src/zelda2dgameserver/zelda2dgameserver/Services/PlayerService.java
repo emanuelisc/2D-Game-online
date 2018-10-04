@@ -12,9 +12,9 @@ import java.util.Set;
 
 public class PlayerService {
 
-    private Set<Player> onlinePlayers = new HashSet<>();
+    private static Set<Player> onlinePlayers = new HashSet<>();
 
-    public Player findByName(String name) {
+    public static Player findByName(String name) {
         for (Player player : onlinePlayers) {
             if (player.getName().equals(name))
                 return player;
@@ -49,19 +49,27 @@ public class PlayerService {
     }
 
     public static boolean login(String name) {
+
+        if (findByName(name) != null) {
+            return true;
+        }
+
         Connection connection = ConnectionManager.getConnection();
 
         try {
-            PreparedStatement ps = connection.prepareStatement("select count(1) as c from players where Name = ?");
+            PreparedStatement ps = connection.prepareStatement("select Id, Health, PosX, PosY from players where Name = ?");
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                int c = rs.getInt("c");
+                int id = rs.getInt("Id");
+                int health = rs.getInt("Health");
+                int posX = rs.getInt("PosX");
+                int posY = rs.getInt("PosY");
 
-                if (c > 0) {
-                    return true;
-                }
+                onlinePlayers.add(new Player(id, name, health, posX, posY));
+
+                return true;
             }
 
         } catch (SQLException e) {
