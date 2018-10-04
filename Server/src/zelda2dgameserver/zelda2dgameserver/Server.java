@@ -5,6 +5,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import zelda2dgameserver.database.ConnectionManager;
 import zelda2dgameserver.handlers.PlayerDataHandler;
+import zelda2dgameserver.handlers.PlayerLoginHandler;
 import zelda2dgameserver.handlers.TilesLoaderHandler;
 
 import java.io.IOException;
@@ -16,8 +17,9 @@ public class Server {
     public static void main(String[] args) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
         server.createContext("/", new Handler());
-        server.createContext("/players/", new PlayerDataHandler());
+        server.createContext("/players", new PlayerDataHandler());
         server.createContext("/level", new TilesLoaderHandler());
+        server.createContext("/login", new PlayerLoginHandler());
         server.start();
         System.out.println("Server started");
     }

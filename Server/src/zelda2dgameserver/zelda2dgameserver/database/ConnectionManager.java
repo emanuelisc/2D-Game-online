@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
 
-    private static final String CONNECTION_STRING = "jdbc:postgresql://192.168.1.195:5432/postgres";
-    private static final String USER = "postgres";
-    private static final String PASS = "varsketis";
+    private static final String CONNECTION_STRING = "jdbc:mysql://88.222.22.14:3306/zelda";
+    private static final String USER = "zelda";
+    private static final String PASS = "zeldagamers";
 
     private static Connection connection;
 
@@ -25,7 +25,7 @@ public class ConnectionManager {
 
         System.out.println("Connecting to Postgresql...");
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(CONNECTION_STRING, USER, PASS);
             ConnectionManager.connection = connection;
             System.out.println("Connected.");
