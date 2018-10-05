@@ -23,7 +23,7 @@ public class ConnectionManager {
     private static Connection connect() {
         Connection connection = null;
 
-        System.out.println("Connecting to Postgresql...");
+        System.out.println("Connecting to Mysql...");
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(CONNECTION_STRING, USER, PASS);
