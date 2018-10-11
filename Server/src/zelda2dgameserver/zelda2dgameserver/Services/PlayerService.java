@@ -8,13 +8,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class PlayerService {
 
     private static Set<Player> onlinePlayers = new HashSet<>();
 
-    public static Player findByName(String name) {
+    private static Player findByName(String name) {
         for (Player player : onlinePlayers) {
             if (player.getName().equals(name))
                 return player;
@@ -48,10 +49,11 @@ public class PlayerService {
         return players;
     }
 
-    public static boolean login(String name) {
+    public static Optional<Player> login(String name) {
+        Player player = findByName(name);
 
-        if (findByName(name) != null) {
-            return true;
+        if (player != null) {
+            return Optional.of(player);
         }
 
         Connection connection = ConnectionManager.getConnection();
@@ -67,16 +69,19 @@ public class PlayerService {
                 int posX = rs.getInt("PosX");
                 int posY = rs.getInt("PosY");
 
+                player = new Player(id, name, health, posX, posY);
                 onlinePlayers.add(new Player(id, name, health, posX, posY));
-
-                return true;
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return false;
+        return Optional.ofNullable(player);
+    }
+
+    public static void update(Player player) {
+
     }
 
 }
