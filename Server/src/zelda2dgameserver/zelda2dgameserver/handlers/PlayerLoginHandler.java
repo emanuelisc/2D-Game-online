@@ -13,8 +13,9 @@ public class PlayerLoginHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange http) throws IOException {
 
-        if (http.getRequestMethod().toLowerCase().equals("post")) {
-            byte[] input = new byte[1024];
+        if (http.getRequestMethod().equals("POST")) {
+            int contentLength = Integer.parseInt(http.getRequestHeaders().getFirst("Content-Length"));
+            byte[] input = new byte[contentLength];
             int size = http.getRequestBody().read(input);
             String username = new String(input, 0, size);
 
@@ -29,7 +30,7 @@ public class PlayerLoginHandler implements HttpHandler {
             }
 
         } else {
-            http.sendResponseHeaders(400, 0);
+            http.sendResponseHeaders(405, 0);
         }
 
         http.getResponseBody().close();

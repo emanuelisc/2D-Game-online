@@ -71,6 +71,7 @@ public class PlayerService {
 
                 player = new Player(id, name, health, posX, posY);
                 onlinePlayers.add(new Player(id, name, health, posX, posY));
+                System.out.printf("Player %s joined.\n", player.getName());
             }
 
         } catch (SQLException e) {
@@ -78,6 +79,32 @@ public class PlayerService {
         }
 
         return Optional.ofNullable(player);
+    }
+
+    public static void logout(String name) {
+        Player player = findByName(name);
+
+        if (player == null) {
+            return;
+        }
+
+        onlinePlayers.remove(player);
+        System.out.printf("Player %s disconnected.", player.getName());
+
+        Connection connection = ConnectionManager.getConnection();
+
+        try {
+             PreparedStatement preparedStatement = connection.prepareStatement("update players set Health = ?, PosX = ?, PosY = ? where Id = ?");
+             preparedStatement.setInt(1, player.getHealth());
+             preparedStatement.setFloat(2, player.getPosX());
+             preparedStatement.setFloat(3, player.getPosY());
+             preparedStatement.setInt(4, player.getId());
+
+             preparedStatement.execute();
+             preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void update(Player player) {
