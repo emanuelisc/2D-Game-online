@@ -19,7 +19,7 @@ public class PlayerUpdateHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange http) throws IOException {
-        if (http.getRequestMethod().equals("POST")) {
+        if (!http.getRequestMethod().equals("POST")) {
             http.sendResponseHeaders(405, 0);
             http.getResponseBody().close();
             return;
@@ -33,7 +33,7 @@ public class PlayerUpdateHandler implements HttpHandler {
         PlayerService.update(player);
         Set<Player> onlinePlayers = PlayerService.getOnlinePlayers(player.getName());
 
-        System.out.println("Player " + player.getName() + " posted.");
+        //System.out.println(player);
 
         String responseJson = objectMapper.writeValueAsString(onlinePlayers);
         http.getResponseHeaders().add("Content-Length", String.valueOf(responseJson.length()));

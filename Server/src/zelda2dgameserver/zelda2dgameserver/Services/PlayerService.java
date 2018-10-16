@@ -1,6 +1,7 @@
 package zelda2dgameserver.Services;
 
 import zelda2dgameserver.database.ConnectionManager;
+import zelda2dgameserver.database.converters.DirectionEnumConverter;
 import zelda2dgameserver.database.models.Player;
 
 import java.sql.Connection;
@@ -47,8 +48,9 @@ public class PlayerService {
                 int health = rs.getInt("Health");
                 int posX = rs.getInt("PosX");
                 int posY = rs.getInt("PosY");
+                int direction = rs.getInt("Direction");
 
-                players.add(new Player(id, name, health, posX, posY));
+                players.add(new Player(id, name, health, posX, posY, DirectionEnumConverter.getDirection(direction)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,7 +69,7 @@ public class PlayerService {
         Connection connection = ConnectionManager.getConnection();
 
         try {
-            PreparedStatement ps = connection.prepareStatement("select Id, Health, PosX, PosY from players where Name = ?");
+            PreparedStatement ps = connection.prepareStatement("select Id, Health, PosX, PosY, Direction from players where Name = ?");
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
 
@@ -76,9 +78,11 @@ public class PlayerService {
                 int health = rs.getInt("Health");
                 int posX = rs.getInt("PosX");
                 int posY = rs.getInt("PosY");
+                int direction = rs.getInt("Direction");
 
-                player = new Player(id, name, health, posX, posY);
-                onlinePlayers.add(new Player(id, name, health, posX, posY));
+                player = new Player(id, name, health, posX, posY, DirectionEnumConverter.getDirection(direction));
+                onlinePlayers.add(player);
+
                 System.out.printf("Player %s joined.\n", player.getName());
             }
 
@@ -97,16 +101,17 @@ public class PlayerService {
         }
 
         onlinePlayers.remove(player);
-        System.out.printf("Player %s disconnected.", player.getName());
+        System.out.printf("Player %s disconnected.\n", player.getName());
 
         Connection connection = ConnectionManager.getConnection();
 
         try {
-             PreparedStatement preparedStatement = connection.prepareStatement("update players set Health = ?, PosX = ?, PosY = ? where Id = ?");
+             PreparedStatement preparedStatement = connection.prepareStatement("update players set Health = ?, PosX = ?, PosY = ?, Direction = ? where Id = ?");
              preparedStatement.setInt(1, player.getHealth());
-             preparedStatement.setFloat(2, player.getPosX());
-             preparedStatement.setFloat(3, player.getPosY());
-             preparedStatement.setInt(4, player.getId());
+             preparedStatement.setInt(2, player.getPosX());
+             preparedStatement.setInt(3, player.getPosY());
+             preparedStatement.setInt(4, DirectionEnumConverter.getDirection(player.getDirection()));
+             preparedStatement.setInt(5, player.getId());
 
              preparedStatement.execute();
              preparedStatement.close();
@@ -119,11 +124,8 @@ public class PlayerService {
         Connection connection = ConnectionManager.getConnection();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into players (Name, Health, PosX, PosY) values (?, ?, ?, ?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into players (Name) values (?)");
             preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, 100);
-            preparedStatement.setInt(3, 0);
-            preparedStatement.setInt(4, 0);
 
             preparedStatement.execute();
             preparedStatement.close();
@@ -133,7 +135,14 @@ public class PlayerService {
     }
 
     public static void update(Player player) {
+        Player serverPlayer = findByName(player.getName());
 
+        if (serverPlayer != null) {
+            serverPlayer.setPosX(player.getPosX());
+            serverPlayer.setPosY(player.getPosY());
+            serverPlayer.setHealth(player.getHealth());
+            serverPlayer.setDirection(player.getDirection());
+        }
     }
 
 }

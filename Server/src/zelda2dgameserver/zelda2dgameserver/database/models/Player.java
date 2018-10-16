@@ -1,5 +1,7 @@
 package zelda2dgameserver.database.models;
 
+import zelda2dgameserver.enums.Direction;
+
 public class Player {
     private int id;
     private String name;
@@ -8,14 +10,17 @@ public class Player {
     private int posX;
     private int posY;
 
+    private Direction direction;
+
     public Player() { }
 
-    public Player(int id, String name, int health, int posX, int posY) {
+    public Player(int id, String name, int health, int posX, int posY, Direction direction) {
         this.id = id;
         this.name = name;
         this.health = health;
         this.posX = posX;
         this.posY = posY;
+        this.direction = direction;
     }
 
     public int getId() {
@@ -56,5 +61,25 @@ public class Player {
 
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", health=" + health +
+                ", posX=" + posX +
+                ", posY=" + posY +
+                ", direction=" + direction +
+                '}';
     }
 }
