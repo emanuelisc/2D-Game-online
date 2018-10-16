@@ -16,6 +16,7 @@ public class PlayerLogoutHandler implements HttpHandler {
             int size = http.getRequestBody().read(data);
             String name = new String(data, 0, size);
             PlayerService.logout(name);
+            http.getResponseHeaders().add("Content-Length", "0");
             http.sendResponseHeaders(200, 0);
         } else {
             http.sendResponseHeaders(405, 0);

@@ -5,12 +5,12 @@ public class Player {
     private String name;
 
     private int health;
-    private float posX;
-    private float posY;
+    private int posX;
+    private int posY;
 
     public Player() { }
 
-    public Player(int id, String name, int health, float posX, float posY) {
+    public Player(int id, String name, int health, int posX, int posY) {
         this.id = id;
         this.name = name;
         this.health = health;
@@ -42,19 +42,19 @@ public class Player {
         this.health = health;
     }
 
-    public float getPosX() {
+    public int getPosX() {
         return posX;
     }
 
-    public void setPosX(float posX) {
+    public void setPosX(int posX) {
         this.posX = posX;
     }
 
-    public float getPosY() {
+    public int getPosY() {
         return posY;
     }
 
-    public void setPosY(float posY) {
+    public void setPosY(int posY) {
         this.posY = posY;
     }
 }

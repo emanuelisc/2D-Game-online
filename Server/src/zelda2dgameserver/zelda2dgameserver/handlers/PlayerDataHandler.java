@@ -14,11 +14,17 @@ import java.util.Set;
  * Zaidejo duomenu handleris.
  */
 public class PlayerDataHandler implements HttpHandler {
+
+    private final ObjectMapper objectMapper;
+
+    public PlayerDataHandler(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
     @Override
     public void handle(HttpExchange http) throws IOException {
-        String action = http.getRequestURI().toString().replace("/players/", "");
+        String action = http.getRequestURI().toString().replace("/players", "");
         String method = http.getRequestMethod().toLowerCase();
-        ObjectMapper objectMapper = new ObjectMapper();
 
         switch (method) {
             case "get":
@@ -33,12 +39,19 @@ public class PlayerDataHandler implements HttpHandler {
                 }
 
                 break;
+
+            case "post":
+                byte[] bytes = new byte[1024];
+                int size = http.getRequestBody().read(bytes);
+                String name = new String(bytes, 0, size);
+                PlayerService.register(name);
+                break;
 //            case "post":
 //                break;
-                default:
-                    http.sendResponseHeaders(405, 0);
-                    http.getResponseBody().close();
-                    break;
+            default:
+                http.sendResponseHeaders(405, 0);
+                http.getResponseBody().close();
+                break;
         }
 
         http.getResponseBody().close();

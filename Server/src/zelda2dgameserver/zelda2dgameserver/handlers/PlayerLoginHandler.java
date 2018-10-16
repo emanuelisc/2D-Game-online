@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class PlayerLoginHandler implements HttpHandler {
-    @Override
+        @Override
     public void handle(HttpExchange http) throws IOException {
 
         if (http.getRequestMethod().equals("POST")) {

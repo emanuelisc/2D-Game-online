@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PlayerService {
 
@@ -22,6 +23,13 @@ public class PlayerService {
         }
 
         return null;
+    }
+
+    public static Set<Player> getOnlinePlayers(String currentPlayerName) {
+        return onlinePlayers
+                .stream()
+                .filter(p -> !p.getName().equals(currentPlayerName))
+                .collect(Collectors.toSet());
     }
 
     public static Set<Player> getAllPlayers() {
@@ -102,6 +110,23 @@ public class PlayerService {
 
              preparedStatement.execute();
              preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void register(String name) {
+        Connection connection = ConnectionManager.getConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into players (Name, Health, PosX, PosY) values (?, ?, ?, ?)");
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, 100);
+            preparedStatement.setInt(3, 0);
+            preparedStatement.setInt(4, 0);
+
+            preparedStatement.execute();
+            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
