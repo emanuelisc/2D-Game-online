@@ -21,22 +21,24 @@ public class ConnectionManager {
     }
 
     private static Connection connect() {
-        Connection connection = null;
+        synchronized (ConnectionManager.class) {
+            Connection connection = null;
 
-        System.out.println("Connecting to Mysql...");
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(CONNECTION_STRING, USER, PASS);
-            ConnectionManager.connection = connection;
-            System.out.println("Connected.");
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-            System.out.println("Postgresql driver not found.");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            System.out.println("Could not connect to Postgresql server.");
+            System.out.println("Connecting to Mysql...");
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                connection = DriverManager.getConnection(CONNECTION_STRING, USER, PASS);
+                ConnectionManager.connection = connection;
+                System.out.println("Connected.");
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+                System.out.println("Postgresql driver not found.");
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println("Could not connect to Postgresql server.");
+            }
+
+            return connection;
         }
-
-        return connection;
     }
 }

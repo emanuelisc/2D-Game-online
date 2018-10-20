@@ -22,9 +22,9 @@ public class Server {
         server.createContext("/", new Handler());
         server.createContext("/login", new PlayerLoginHandler());
         server.createContext("/logout", new PlayerLogoutHandler());
-        server.createContext("/players", new PlayerDataHandler(objectMapper));
+//        server.createContext("/players", new PlayerDataHandler(objectMapper));
         server.createContext("/update", new PlayerUpdateHandler(objectMapper));
-        server.createContext("/level", new TilesLoaderHandler());
+//        server.createContext("/level", new TilesLoaderHandler());
         server.start();
         System.out.println("Server started");
     }
