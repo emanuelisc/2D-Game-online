@@ -2,8 +2,7 @@ package zelda2dgameserver.handlers;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import sun.net.www.http.HttpCaptureOutputStream;
-import zelda2dgameserver.Services.PlayerService;
+import zelda2dgameserver.services.PlayerService;
 
 import java.io.IOException;
 

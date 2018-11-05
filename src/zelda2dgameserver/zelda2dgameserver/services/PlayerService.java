@@ -1,8 +1,8 @@
-package zelda2dgameserver.Services;
+package zelda2dgameserver.services;
 
 import zelda2dgameserver.database.ConnectionManager;
 import zelda2dgameserver.database.converters.DirectionEnumConverter;
-import zelda2dgameserver.database.models.Player;
+import zelda2dgameserver.models.Player;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,8 +49,9 @@ public class PlayerService {
                 int posX = rs.getInt("PosX");
                 int posY = rs.getInt("PosY");
                 int direction = rs.getInt("Direction");
+                int lives = rs.getInt("Lives");
 
-                players.add(new Player(id, name, health, posX, posY, DirectionEnumConverter.getDirection(direction)));
+                players.add(new Player(id, name, health, posX, posY, DirectionEnumConverter.getDirection(direction), lives));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,7 +70,7 @@ public class PlayerService {
         Connection connection = ConnectionManager.getConnection();
 
         try {
-            PreparedStatement ps = connection.prepareStatement("select Id, Health, PosX, PosY, Direction from players where Name = ?");
+            PreparedStatement ps = connection.prepareStatement("select Id, Health, PosX, PosY, Direction, Lives from players where Name = ?");
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
 
@@ -79,8 +80,9 @@ public class PlayerService {
                 int posX = rs.getInt("PosX");
                 int posY = rs.getInt("PosY");
                 int direction = rs.getInt("Direction");
+                int lives = rs.getInt("Lives");
 
-                player = new Player(id, name, health, posX, posY, DirectionEnumConverter.getDirection(direction));
+                player = new Player(id, name, health, posX, posY, DirectionEnumConverter.getDirection(direction), lives);
                 onlinePlayers.add(player);
 
                 System.out.printf("Player %s joined.\n", player.getName());
@@ -106,12 +108,13 @@ public class PlayerService {
         Connection connection = ConnectionManager.getConnection();
 
         try {
-             PreparedStatement preparedStatement = connection.prepareStatement("update players set Health = ?, PosX = ?, PosY = ?, Direction = ? where Id = ?");
+             PreparedStatement preparedStatement = connection.prepareStatement("update players set Health = ?, PosX = ?, PosY = ?, Direction = ?, Lives = ? where Id = ?");
              preparedStatement.setInt(1, player.getHealth());
              preparedStatement.setInt(2, player.getPosX());
              preparedStatement.setInt(3, player.getPosY());
              preparedStatement.setInt(4, DirectionEnumConverter.getDirection(player.getDirection()));
-             preparedStatement.setInt(5, player.getId());
+            preparedStatement.setInt(5, player.getLives());
+            preparedStatement.setInt(6, player.getId());
 
              preparedStatement.execute();
              preparedStatement.close();

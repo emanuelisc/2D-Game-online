@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import zelda2dgameserver.database.ConnectionManager;
 import zelda2dgameserver.handlers.*;
+import zelda2dgameserver.services.TilesService;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -24,9 +25,13 @@ public class Server {
         server.createContext("/logout", new PlayerLogoutHandler());
 //        server.createContext("/players", new PlayerDataHandler(objectMapper));
         server.createContext("/update", new PlayerUpdateHandler(objectMapper));
-//        server.createContext("/level", new TilesLoaderHandler());
+        server.createContext("/level", new TilesLoaderHandler(objectMapper));
+        server.createContext("/editor", new LevelEditorHandler());
         server.start();
         System.out.println("Server started");
+
+        TilesService.loadTiles();
+        TilesService.loadWorldTiles();
     }
 
     static class Handler implements HttpHandler {
