@@ -19,6 +19,7 @@ public class TilesService {
     private static List<WorldTile> worldTiles = new ArrayList<>();
 
     public static void loadTiles() {
+        System.out.println("Loading tile types...");
         Connection connection = ConnectionManager.getConnection();
 
         try {
@@ -34,12 +35,15 @@ public class TilesService {
             }
 
             rs.close();
+
+            System.out.println("Tile types loaded.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public static void loadWorldTiles() {
+        System.out.println("Loading world tiles...");
         Connection connection = ConnectionManager.getConnection();
         try {
             PreparedStatement ps = connection.prepareStatement("select * from world");
@@ -56,6 +60,8 @@ public class TilesService {
             }
 
             rs.close();
+
+            System.out.println("World tiles loaded.");
         } catch (SQLException e) {
             e.printStackTrace();
         }

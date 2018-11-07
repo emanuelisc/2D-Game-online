@@ -5,7 +5,6 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
 public class LevelEditorHandler implements HttpHandler {
     @Override
