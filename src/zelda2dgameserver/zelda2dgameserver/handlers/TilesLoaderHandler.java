@@ -1,13 +1,39 @@
 package zelda2dgameserver.handlers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import zelda2dgameserver.models.Viewport;
+import zelda2dgameserver.models.WorldTile;
+import zelda2dgameserver.services.TilesService;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TilesLoaderHandler implements HttpHandler {
+    private final ObjectMapper objectMapper;
+
+    public TilesLoaderHandler(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
     @Override
     public void handle(HttpExchange http) throws IOException {
-        // todo: gauti requesta, atsiusti tiles kokiu nors duomenu tipu. Parsiustas mapas, veliau butu uzkraunamass
+        if (http.getRequestMethod().equals("POST")) {
+            byte[] buffer = new byte[1024];
+            int readSize = http.getRequestBody().read(buffer);
+            String data = new String(buffer, 0, readSize);
+
+            Viewport viewport = objectMapper.readValue(data, Viewport.class);
+
+            List<WorldTile> tiles = TilesService.getWorldTiles(viewport);
+            String result = objectMapper.writeValueAsString(tiles);
+
+            http.sendResponseHeaders(200, result.length());
+            http.getResponseBody().write(result.getBytes());
+        }
+
+        http.getRequestBody().close();
+        http.getResponseBody().close();
     }
 }

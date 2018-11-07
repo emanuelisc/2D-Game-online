@@ -1,4 +1,4 @@
-package zelda2dgameserver.database.models;
+package zelda2dgameserver.models;
 
 import zelda2dgameserver.enums.Direction;
 
@@ -12,15 +12,18 @@ public class Player {
 
     private Direction direction;
 
+    private int lives;
+
     public Player() { }
 
-    public Player(int id, String name, int health, int posX, int posY, Direction direction) {
+    public Player(int id, String name, int health, int posX, int posY, Direction direction, int lives) {
         this.id = id;
         this.name = name;
         this.health = health;
         this.posX = posX;
         this.posY = posY;
         this.direction = direction;
+        this.lives = lives;
     }
 
     public int getId() {
@@ -69,6 +72,14 @@ public class Player {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 
     @Override

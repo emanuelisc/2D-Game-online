@@ -3,8 +3,8 @@ package zelda2dgameserver.handlers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import zelda2dgameserver.Services.PlayerService;
-import zelda2dgameserver.database.models.Player;
+import zelda2dgameserver.services.PlayerService;
+import zelda2dgameserver.models.Player;
 
 import java.io.IOException;
 import java.util.Set;
