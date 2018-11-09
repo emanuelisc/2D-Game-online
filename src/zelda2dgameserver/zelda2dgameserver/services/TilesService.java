@@ -15,10 +15,20 @@ import java.util.stream.Collectors;
 
 public class TilesService {
 
-    private static List<TileType> tileTypes = new ArrayList<>();
-    private static List<WorldTile> worldTiles = new ArrayList<>();
+    private List<TileType> tileTypes = new ArrayList<>();
+    private List<WorldTile> worldTiles = new ArrayList<>();
 
-    public static void loadTiles() {
+    private static TilesService instance;
+
+    static TilesService getInstance() {
+        if (instance == null) {
+            instance = new TilesService();
+        }
+
+        return instance;
+    }
+
+    public void loadTiles() {
         System.out.println("Loading tile types...");
         Connection connection = ConnectionManager.getConnection();
 
@@ -42,7 +52,7 @@ public class TilesService {
         }
     }
 
-    public static void loadWorldTiles() {
+    public void loadWorldTiles() {
         System.out.println("Loading world tiles...");
         Connection connection = ConnectionManager.getConnection();
         try {
@@ -67,15 +77,15 @@ public class TilesService {
         }
     }
 
-    public static List<TileType> getTileTypes() {
+    public List<TileType> getTileTypes() {
         return tileTypes;
     }
 
-    public static List<WorldTile> getWorldTiles() {
+    public List<WorldTile> getWorldTiles() {
         return worldTiles;
     }
 
-    public static List<WorldTile> getWorldTiles(Viewport viewPort) {
+    public List<WorldTile> getWorldTiles(Viewport viewPort) {
         final int fromX = viewPort.getIndXFrom();
         final int toX = viewPort.getIndXTo();
         final int fromY = viewPort.getIndYFrom();

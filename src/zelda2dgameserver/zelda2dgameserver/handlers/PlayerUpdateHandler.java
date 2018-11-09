@@ -3,8 +3,8 @@ package zelda2dgameserver.handlers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import zelda2dgameserver.services.PlayerService;
 import zelda2dgameserver.models.Player;
+import zelda2dgameserver.services.ServiceRegistry;
 
 import java.io.IOException;
 import java.util.Set;
@@ -12,9 +12,11 @@ import java.util.Set;
 public class PlayerUpdateHandler implements HttpHandler {
 
     private final ObjectMapper objectMapper;
+    private final ServiceRegistry serviceRegistry;
 
-    public PlayerUpdateHandler(ObjectMapper objectMapper) {
+    public PlayerUpdateHandler(ObjectMapper objectMapper, ServiceRegistry serviceRegistry) {
         this.objectMapper = objectMapper;
+        this.serviceRegistry = serviceRegistry;
     }
 
     @Override
@@ -30,8 +32,10 @@ public class PlayerUpdateHandler implements HttpHandler {
         String json = new String(data, 0, size);
         Player player = objectMapper.readValue(json, Player.class);
 
-        PlayerService.update(player);
-        Set<Player> onlinePlayers = PlayerService.getOnlinePlayers(player.getName());
+
+
+        serviceRegistry.playerService().update(player);
+        Set<Player> onlinePlayers = serviceRegistry.playerService().getOnlinePlayers(player.getName());
 
         //System.out.println(player);
 

@@ -5,16 +5,18 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import zelda2dgameserver.models.Viewport;
 import zelda2dgameserver.models.WorldTile;
-import zelda2dgameserver.services.TilesService;
+import zelda2dgameserver.services.ServiceRegistry;
 
 import java.io.IOException;
 import java.util.List;
 
 public class TilesLoaderHandler implements HttpHandler {
     private final ObjectMapper objectMapper;
+    private final ServiceRegistry serviceRegistry;
 
-    public TilesLoaderHandler(ObjectMapper objectMapper) {
+    public TilesLoaderHandler(ObjectMapper objectMapper, ServiceRegistry serviceRegistry) {
         this.objectMapper = objectMapper;
+        this.serviceRegistry = serviceRegistry;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class TilesLoaderHandler implements HttpHandler {
 
             Viewport viewport = objectMapper.readValue(data, Viewport.class);
 
-            List<WorldTile> tiles = TilesService.getWorldTiles(viewport);
+            List<WorldTile> tiles = serviceRegistry.tilesService().getWorldTiles(viewport);
             String result = objectMapper.writeValueAsString(tiles);
 
             http.sendResponseHeaders(200, result.length());

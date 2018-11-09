@@ -5,6 +5,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import zelda2dgameserver.services.PlayerService;
 import zelda2dgameserver.models.Player;
+import zelda2dgameserver.services.ServiceRegistry;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -16,9 +17,11 @@ import java.util.Set;
 public class PlayerDataHandler implements HttpHandler {
 
     private final ObjectMapper objectMapper;
+    private final ServiceRegistry serviceRegistry;
 
-    public PlayerDataHandler(ObjectMapper objectMapper) {
+    public PlayerDataHandler(ObjectMapper objectMapper, ServiceRegistry serviceRegistry) {
         this.objectMapper = objectMapper;
+        this.serviceRegistry = serviceRegistry;
     }
 
     @Override
@@ -29,7 +32,7 @@ public class PlayerDataHandler implements HttpHandler {
         switch (method) {
             case "get":
                 if (action.length() == 0) {
-                    Set<Player> players = PlayerService.getAllPlayers();
+                    Set<Player> players = serviceRegistry.playerService().getAllPlayers();
                     byte[] data = objectMapper.writeValueAsBytes(players);
                     OutputStream out = http.getResponseBody();
 

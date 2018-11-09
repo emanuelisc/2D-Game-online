@@ -15,9 +15,19 @@ import java.util.stream.Collectors;
 
 public class PlayerService {
 
-    private static Set<Player> onlinePlayers = new HashSet<>();
+    private Set<Player> onlinePlayers = new HashSet<>();
 
-    private static Player findByName(String name) {
+    private static PlayerService instance;
+
+    static PlayerService getInstance() {
+        if (instance == null) {
+            instance = new PlayerService();
+        }
+
+        return instance;
+    }
+
+    private Player findByName(String name) {
         for (Player player : onlinePlayers) {
             if (player.getName().equals(name))
                 return player;
@@ -26,14 +36,14 @@ public class PlayerService {
         return null;
     }
 
-    public static Set<Player> getOnlinePlayers(String currentPlayerName) {
+    public Set<Player> getOnlinePlayers(String currentPlayerName) {
         return onlinePlayers
                 .stream()
                 .filter(p -> !p.getName().equals(currentPlayerName))
                 .collect(Collectors.toSet());
     }
 
-    public static Set<Player> getAllPlayers() {
+    public Set<Player> getAllPlayers() {
         Set<Player> players = new HashSet<>();
 
         Connection connection = ConnectionManager.getConnection();
@@ -60,7 +70,7 @@ public class PlayerService {
         return players;
     }
 
-    public static Optional<Player> login(String name) {
+    public Optional<Player> login(String name) {
         Player player = findByName(name);
 
         if (player != null) {
@@ -95,7 +105,7 @@ public class PlayerService {
         return Optional.ofNullable(player);
     }
 
-    public static void logout(String name) {
+    public void logout(String name) {
         Player player = findByName(name);
 
         if (player == null) {
@@ -137,7 +147,7 @@ public class PlayerService {
         }
     }
 
-    public static void update(Player player) {
+    public void update(Player player) {
         Player serverPlayer = findByName(player.getName());
 
         if (serverPlayer != null) {
