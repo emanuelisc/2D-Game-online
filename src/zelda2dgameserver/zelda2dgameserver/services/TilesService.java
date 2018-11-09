@@ -20,6 +20,8 @@ public class TilesService {
 
     private static TilesService instance;
 
+    private TilesService() {}
+
     static TilesService getInstance() {
         if (instance == null) {
             instance = new TilesService();
