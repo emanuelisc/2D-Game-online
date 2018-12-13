@@ -3,7 +3,7 @@ package zelda2dgameserver.services;
 public class ServiceRegistry {
 
     public PlayerService playerService() {
-        return PlayerService.getInstance();
+        return PlayerServiceProxy.getInstance();
     }
 
     public TilesService tilesService() {

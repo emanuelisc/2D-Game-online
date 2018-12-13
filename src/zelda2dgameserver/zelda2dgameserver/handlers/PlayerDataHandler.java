@@ -3,7 +3,6 @@ package zelda2dgameserver.handlers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import zelda2dgameserver.services.PlayerService;
 import zelda2dgameserver.models.Player;
 import zelda2dgameserver.services.ServiceRegistry;
 
@@ -47,7 +46,7 @@ public class PlayerDataHandler implements HttpHandler {
                 byte[] bytes = new byte[1024];
                 int size = http.getRequestBody().read(bytes);
                 String name = new String(bytes, 0, size);
-                PlayerService.register(name);
+                serviceRegistry.playerService().register(name);
                 break;
 //            case "post":
 //                break;
